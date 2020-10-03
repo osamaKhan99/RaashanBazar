@@ -1,31 +1,40 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import ReactDOM from 'react-dom';
-import { BrowserRouter } from 'react-router-dom';
-import Routes from './routes';
-import { Provider } from 'react-redux';
-import thunk from 'redux-thunk';
-import { createStore, applyMiddleware, compose } from 'redux';
-import rootReducer from './Redux/index';
+import { getContracts, getWeb3 } from './Utils';
+import App from './App';
 
-const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
-const initialState = {};
-const store = createStore(
-  rootReducer,
-  initialState,
-  composeEnhancers(applyMiddleware(thunk))
-);
+const LoadingContainer = () => {
+  const [web3, setWeb3] = useState(undefined);
+  const [contract, setContract] = useState(undefined);
+  const [accounts, setAccount] = useState([]);
+  const [loading, setLoading] = useState(true);
 
-const App = () => {
+  useEffect(() => {
+    console.log('web3 changed');
+    const init = async () => {
+      const web3 = await getWeb3();
+      console.log(web3);
+      const contract = await getContracts(web3);
+      console.log(contract);
+      const accounts = await web3.eth.getAccounts();
+
+      setWeb3(web3);
+      setContract(contract);
+      setAccount(accounts);
+      setLoading(false);
+    };
+    init();
+  }, [accounts, web3]);
+
   return (
-    <BrowserRouter>
-      <Routes />
-    </BrowserRouter>
+    <div>
+      {loading ? (
+        <div>...Loading</div>
+      ) : (
+        <App web3={web3} contract={contract} accounts={accounts}></App>
+      )}
+    </div>
   );
 };
 
-ReactDOM.render(
-  <Provider store={store}>
-    <App />
-  </Provider>,
-  document.getElementById('root')
-);
+ReactDOM.render(<LoadingContainer />, document.getElementById('root'));

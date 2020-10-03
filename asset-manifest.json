@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/demo.BitFlexToken/static/css/main.521915c2.chunk.css",
+    "main.js": "/demo.BitFlexToken/static/js/main.f8376253.chunk.js",
+    "main.js.map": "/demo.BitFlexToken/static/js/main.f8376253.chunk.js.map",
+    "runtime-main.js": "/demo.BitFlexToken/static/js/runtime-main.5a0e5111.js",
+    "runtime-main.js.map": "/demo.BitFlexToken/static/js/runtime-main.5a0e5111.js.map",
+    "static/js/2.b087988a.chunk.js": "/demo.BitFlexToken/static/js/2.b087988a.chunk.js",
+    "static/js/2.b087988a.chunk.js.map": "/demo.BitFlexToken/static/js/2.b087988a.chunk.js.map",
+    "index.html": "/demo.BitFlexToken/index.html",
+    "precache-manifest.0b9a5c35b9ece68eacf02cb1c574018f.js": "/demo.BitFlexToken/precache-manifest.0b9a5c35b9ece68eacf02cb1c574018f.js",
+    "service-worker.js": "/demo.BitFlexToken/service-worker.js",
+    "static/css/main.521915c2.chunk.css.map": "/demo.BitFlexToken/static/css/main.521915c2.chunk.css.map",
+    "static/js/2.b087988a.chunk.js.LICENSE.txt": "/demo.BitFlexToken/static/js/2.b087988a.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.5a0e5111.js",
+    "static/js/2.b087988a.chunk.js",
+    "static/css/main.521915c2.chunk.css",
+    "static/js/main.f8376253.chunk.js"
+  ]
+}
